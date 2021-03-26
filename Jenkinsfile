@@ -6,6 +6,7 @@ pipeline{
   parameters {
   choice choices: ['plan', 'apply'], description: 'Run terraform plan / apply', name: 'ACTION'
   gitParameter branchFilter: 'origin/(.*)', defaultValue: '', name: 'BRANCH', type: 'PT_BRANCH'
+  string (name: 'PROFILE', defaultValue: 'myprofile', description: 'Optional. Target aws profile defaults to myprofile')
   }
   stages {
   stage('Terraform plan') {
