@@ -9,6 +9,9 @@ pipeline{
   }
   stages {
   stage('Terraform plan') {
+    when {
+      expression { ACTION == 'plan'}
+    }
     steps {
       // One or more steps need to be included within the steps block.
       cleanWs()
@@ -18,12 +21,13 @@ pipeline{
       bat 'chmod u+x script.sh && ./script.sh'
       bat 'terraform init && terraform plan'
       }
-    when {
-      environment name: 'ACTION', value: 'plan'
-    }
+    
   }
   }
   stage('Terraform apply') {
+     when {
+       expression { ACTION == 'apply'}
+    }
     steps {
       // One or more steps need to be included within the steps block.
       cleanWs()
@@ -33,9 +37,7 @@ pipeline{
       bat 'chmod u+x script.sh && ./script.sh'
       bat 'terraform init && terraform apply --auto-approve'
       }
-    when {
-      environment name: 'ACTION', value: 'apply'
-    }
+   
   }
   }
   }
