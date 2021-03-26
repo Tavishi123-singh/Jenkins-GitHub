@@ -6,7 +6,7 @@ pipeline{
   parameters {
   choice choices: ['plan', 'apply'], description: 'Run terraform plan / apply', name: 'ACTION'
   gitParameter branchFilter: 'origin/(.*)', defaultValue: '', name: 'BRANCH', type: 'PT_BRANCH'
-}
+  }
   stages {
   stage('Terraform plan') {
     steps {
@@ -39,6 +39,6 @@ pipeline{
       environment name: 'ACTION', value: 'apply'
     }
   }
-
+  }
   }
 }
