@@ -12,8 +12,7 @@ pipeline{
   string (name: 'PROFILE', defaultValue: 'myprofile', description: 'Optional. Target aws profile defaults to myprofile')
   }
   stages {
-   stage('checkout'){
-		node{
+	  stage('checkout'){
 			cleanWs()
 			checkout scm
 		}
