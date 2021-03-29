@@ -12,6 +12,9 @@ pipeline{
   string (name: 'PROFILE', defaultValue: 'myprofile', description: 'Optional. Target aws profile defaults to myprofile')
   }
   stages {
+    stage{
+      //bvcfxdzdxfcv
+    }
   /*stage('Terraform plan') {
     when {
       expression { ACTION == 'plan'}
