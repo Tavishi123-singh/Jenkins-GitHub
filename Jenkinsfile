@@ -12,9 +12,11 @@ pipeline{
   string (name: 'PROFILE', defaultValue: 'myprofile', description: 'Optional. Target aws profile defaults to myprofile')
   }
   stages {
-    stage{
-      //bvcfxdzdxfcv
-    }
+   stage('checkout'){
+		node{
+			cleanWs()
+			checkout scm
+		}
   /*stage('Terraform plan') {
     when {
       expression { ACTION == 'plan'}
