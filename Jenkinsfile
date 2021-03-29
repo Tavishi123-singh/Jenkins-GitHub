@@ -18,7 +18,7 @@ pipeline{
 			checkout scm
 		}
 	  }
-  /*stage('Terraform plan') {
+  stage('Terraform plan') {
     when {
       expression { ACTION == 'plan'}
     }
@@ -34,7 +34,7 @@ pipeline{
     
   }
   }
-  stage('Terraform apply') {
+  /*stage('Terraform apply') {
      when {
        expression { ACTION == 'apply'}
     }
