@@ -13,9 +13,11 @@ pipeline{
   }
   stages {
 	  stage('checkout'){
+		  steps{
 			cleanWs()
 			checkout scm
 		}
+	  }
   /*stage('Terraform plan') {
     when {
       expression { ACTION == 'plan'}
