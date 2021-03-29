@@ -8,7 +8,7 @@ pipeline{
   }
   parameters {
   choice choices: ['plan', 'apply'], description: 'Run terraform plan / apply', name: 'ACTION'
-  gitParameter branchFilter: '*/main', defaultValue: '', name: 'BRANCH', type: 'PT_BRANCH'
+  gitParameter branchFilter: 'origin/(.*)', defaultValue: '', name: 'BRANCH', type: 'PT_BRANCH'
   string (name: 'PROFILE', defaultValue: 'myprofile', description: 'Optional. Target aws profile defaults to myprofile')
   }
   stages {
@@ -23,7 +23,7 @@ pipeline{
     }
     steps {
       // One or more steps need to be included within the steps block.
-      cleanWs()
+      //cleanWs()
       git branch: '${params.BRANCH}', url: 'https://github.com/Tavishi123-singh/Jenkins-GitHub.git'
       dir("./terraform"){
       bat 'echo "EXECUTING TERRAFORM PLAN !!"'
