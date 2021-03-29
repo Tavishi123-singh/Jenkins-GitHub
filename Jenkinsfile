@@ -25,10 +25,10 @@ pipeline{
       // One or more steps need to be included within the steps block.
       //cleanWs()
       git branch: "${params.BRANCH}", url: 'https://github.com/Tavishi123-singh/Jenkins-GitHub.git'
-      dir("./terraform"){
-      bat 'echo "EXECUTING TERRAFORM PLAN !!"'
+      //dir("./terraform"){
+      //bat 'echo "EXECUTING TERRAFORM PLAN !!"'
       //bat 'terraform init && terraform plan'
-      }
+      //}
     
   }
   }
