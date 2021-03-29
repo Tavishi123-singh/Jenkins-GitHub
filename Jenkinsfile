@@ -27,7 +27,6 @@ pipeline{
       git branch: "${params.BRANCH}", url: 'https://github.com/Tavishi123-singh/Jenkins-GitHub.git'
       dir("./terraform"){
       bat 'echo "EXECUTING TERRAFORM PLAN !!"'
-      bat 'chmod u+x script.sh && ./script.sh'
       bat 'terraform init && terraform plan'
       }
     
@@ -43,7 +42,6 @@ pipeline{
       git branch: '${params.BRANCH}', url: 'https://github.com/Tavishi123-singh/Jenkins-GitHub.git'
       dir("./terraform"){
       bat 'echo "EXECUTING TERRAFORM APPLY !!"'
-      bat 'chmod u+x script.sh && ./script.sh'
       bat 'terraform init && terraform apply --auto-approve'
       }
    
