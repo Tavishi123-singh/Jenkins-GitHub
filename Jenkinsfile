@@ -30,7 +30,7 @@ pipeline{
 	      //cmd_exec('echo "EXECUTING TERRAFORM PLAN !!"')
 	      //cmd_exec('terraform init && terraform plan')
 	   bat "cd ./terraform"
-	    bat """echo "EXECUTING TERRAFORM PLAN !!""""
+	    //bat """echo "EXECUTING TERRAFORM PLAN !!""""
       bat "terraform init && terraform plan"
       //}
     
