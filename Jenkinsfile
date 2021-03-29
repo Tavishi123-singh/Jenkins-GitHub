@@ -11,7 +11,7 @@ pipeline{
   gitParameter branchFilter: 'origin/(.*)', defaultValue: '', name: 'BRANCH', type: 'PT_BRANCH'
   string (name: 'PROFILE', defaultValue: 'myprofile', description: 'Optional. Target aws profile defaults to myprofile')
   }
-  stages {
+  /*stages {
   stage('Terraform plan') {
     when {
       expression { ACTION == 'plan'}
@@ -44,5 +44,5 @@ pipeline{
    
   }
   }
-  }
+  }*/
 }
