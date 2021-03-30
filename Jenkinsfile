@@ -7,14 +7,25 @@ pipeline{
   ansiColor('xterm')
   }
   parameters {
-  choice choices: ['plan', 'apply'], description: 'Run terraform plan / apply', name: 'ACTION'
-  gitParameter branchFilter: 'origin/(.*)', defaultValue: '', name: 'BRANCH', type: 'PT_BRANCH'
-  string (name: 'PROFILE', defaultValue: 'myprofile', description: 'Optional. Target aws profile defaults to myprofile')
+  	choice choices: ['plan', 'apply'], description: 'Run terraform plan / apply', name: 'ACTION'
+  	gitParameter branchFilter: 'origin/(.*)', defaultValue: '', name: 'BRANCH', type: 'PT_BRANCH'
+  	string (name: 'PROFILE', defaultValue: 'myprofile', description: 'Optional. Target aws profile defaults to myprofile')
   }
+	
+  environment {
+  	AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
+  	AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
+ }
+
   stages {
 	  stage('checkout'){
 		  steps{
-			checkout scm
+			  script{
+				  dir('./terraform'){
+					git "https://github.com/Tavishi123-singh/Jenkins-GitHub.git"
+					//checkout scm
+				  }
+			  }
 		}
 	  }
   stage('Terraform plan') {
