@@ -27,18 +27,18 @@ pipeline{
       git branch: "${params.BRANCH}", url: 'https://github.com/Tavishi123-singh/Jenkins-GitHub.git'
       dir("./terraform"){
 	      //cmd_exec('cd ./terraform')
-	      cmd_exec('echo "EXECUTING TERRAFORM PLAN !!"')
-	      cmd_exec('terraform init && terraform plan')
+	      //cmd_exec('echo "EXECUTING TERRAFORM PLAN !!"')
+	      //cmd_exec('terraform init && terraform plan')
 	//bat "cd ./terraform"
-	//bat 'echo "EXECUTING TERRAFORM PLAN !!"'
-      	//bat 'terraform init && terraform plan'
+	bat 'echo "EXECUTING TERRAFORM PLAN !!"'
+      	bat 'terraform init && terraform plan'
       }
     
   }
   }
-  def cmd_exec(command) {
+  /*def cmd_exec(command) {
     return bat(returnStdout: true, script: "${command}").trim()
-  }
+  }*/
   stage('Terraform apply') {
      when {
        expression { ACTION == 'apply'}
@@ -47,8 +47,8 @@ pipeline{
       // One or more steps need to be included within the steps block.
       git branch: "${params.BRANCH}", url: 'https://github.com/Tavishi123-singh/Jenkins-GitHub.git'
       dir("./terraform"){
-      bat 'echo "EXECUTING TERRAFORM APPLY !!"'
-      bat 'terraform init && terraform apply --auto-approve'
+      	bat 'echo "EXECUTING TERRAFORM APPLY !!"'
+      	bat 'terraform init && terraform apply --auto-approve'
       }
    
   }
