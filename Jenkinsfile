@@ -22,7 +22,7 @@ pipeline{
 		  steps{
 			  script{
 				  dir('./terraform'){
-					git "https://github.com/Tavishi123-singh/Jenkins-GitHub.git"
+					git branch: "${params.BRANCH}", url: 'https://github.com/Tavishi123-singh/Jenkins-GitHub.git'
 					//checkout scm
 				  }
 			  }
